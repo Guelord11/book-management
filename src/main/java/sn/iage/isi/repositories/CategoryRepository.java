@@ -79,11 +79,10 @@ public class CategoryRepository {
                 .getResultList();
     }
 
-    public int countCategories() {
+    public Long countCategories() {
         return em
                 .createQuery("SELECT COUNT(c.id) FROM Category c", Long.class)
-                .getSingleResult()
-                .intValue();
+                .getSingleResult();
     }
 
     public List<Category> searchActiveCategories() {

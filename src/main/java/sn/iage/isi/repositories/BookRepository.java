@@ -141,10 +141,9 @@ public class BookRepository {
                 .getResultList();
     }
 
-    public int countAllBooks() {
+    public Long countAllBooks() {
         return em
                 .createQuery("SELECT COUNT(b) FROM Book b", Long.class)
-                .getSingleResult()
-                .intValue();
+                .getSingleResult();
     }
 }
