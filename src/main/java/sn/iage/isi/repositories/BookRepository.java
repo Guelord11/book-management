@@ -7,6 +7,7 @@ import sn.iage.isi.entities.Book;
 import java.util.List;
 import java.util.Random;
 
+
 public class BookRepository {
     EntityManager em = JpaUtil.getEntityManager();
 
@@ -140,8 +141,10 @@ public class BookRepository {
                 .getResultList();
     }
 
-    public Long countAllBooks() {
-        return em.createQuery("SELECT COUNT(b) FROM Book b", Long.class)
-                .getSingleResult();
+    public int countAllBooks() {
+        return em
+                .createQuery("SELECT COUNT(b) FROM Book b", Long.class)
+                .getSingleResult()
+                .intValue();
     }
 }
